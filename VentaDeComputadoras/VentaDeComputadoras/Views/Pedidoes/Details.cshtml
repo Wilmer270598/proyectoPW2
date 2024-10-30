@@ -1,0 +1,60 @@
+﻿@model VentaDeComputadoras.Models.Pedido
+
+@{
+    ViewData["Title"] = "Detalles del Pedido";
+}
+
+<h1 class="text-center my-4">Detalles del Pedido</h1>
+
+<div class="card shadow p-4 my-4">
+    <h4 class="card-title">Información del Pedido</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-3 font-weight-bold">
+            @Html.DisplayNameFor(model => model.descuento)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.descuento)
+        </dd>
+
+        <dt class="col-sm-3 font-weight-bold">
+            @Html.DisplayNameFor(model => model.estadoPedido)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.estadoPedido)
+        </dd>
+
+        <dt class="col-sm-3 font-weight-bold">
+            @Html.DisplayNameFor(model => model.fechaPedido)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.fechaPedido)
+        </dd>
+
+        <dt class="col-sm-3 font-weight-bold">
+            @Html.DisplayNameFor(model => model.fechaEntrega)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.fechaEntrega)
+        </dd>
+
+        <dt class="col-sm-3 font-weight-bold">
+            @Html.DisplayNameFor(model => model.totalPedido)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.totalPedido)
+        </dd>
+
+        <dt class="col-sm-3 font-weight-bold">
+            @Html.DisplayNameFor(model => model.cliente)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.cliente.apellido)
+        </dd>
+    </dl>
+</div>
+
+<div class="text-center my-4">
+    <a asp-action="Edit" asp-route-id="@Model?.idPedido" class="btn btn-primary me-2">Editar</a>
+    <a asp-action="Index" class="btn btn-secondary">Volver a la Lista</a>
+</div>

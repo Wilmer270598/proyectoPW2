@@ -1,0 +1,68 @@
+﻿@model IEnumerable<VentaDeComputadoras.Models.Pago>
+
+@{
+    ViewData["Title"] = "Lista de Pagos";
+}
+<div class="d-flex flex-row gap-3">
+    <div class="card" style="width:18rem;">
+        <img class="card-img-top" src="~/images/PAGO.jpg" alt="Card image cap">
+        <div class="card-body">
+        </div>
+    </div>
+</div>
+
+<h1 class="text-center my-4">Lista de Pagos</h1>
+
+<div class="d-flex justify-content-between mb-3">
+    <a asp-action="Create" class="btn btn-success">Agregar Nuevo Pago</a>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-striped table-bordered">
+        <thead class="thead-dark">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.metodosPago)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.fechaPago)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.estadoPago)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.pedido)
+                </th>
+                <th class="text-center">Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.metodosPago)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.fechaPago)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.estadoPago)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.pedido.estadoPedido)
+                    </td>
+                    <td class="text-center">
+                        <a asp-action="Edit" asp-route-id="@item.idPago" class="btn btn-warning btn-sm">Editar</a>
+                        <a asp-action="Details" asp-route-id="@item.idPago" class="btn btn-info btn-sm">Detalles</a>
+                        <a asp-action="Delete" asp-route-id="@item.idPago" class="btn btn-danger btn-sm">Eliminar</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

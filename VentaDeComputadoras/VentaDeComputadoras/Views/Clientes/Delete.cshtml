@@ -1,0 +1,65 @@
+﻿@model VentaDeComputadoras.Models.Cliente
+
+@{
+    ViewData["Title"] = "Eliminar Cliente";
+}
+
+<h1 class="text-light">Eliminar Cliente</h1>
+
+<h3 class="text-warning">¿Estás seguro de que deseas eliminar este cliente?</h3>
+
+<div class="card bg-dark text-light p-4 mt-3">
+    <h4 class="text-secondary">Detalles del Cliente</h4>
+    <hr class="bg-secondary" />
+    <dl class="row">
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.nombre)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.nombre)
+        </dd>
+
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.apellido)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.apellido)
+        </dd>
+
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.telefono)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.telefono)
+        </dd>
+
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.correo)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.correo)
+        </dd>
+
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.calle)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.calle)
+        </dd>
+
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.codigoPostal)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.codigoPostal)
+        </dd>
+    </dl>
+</div>
+
+<div class="mt-4">
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="id_cliente" />
+        <button type="submit" class="btn btn-danger">Eliminar</button>
+        <a asp-action="Index" class="btn btn-secondary ml-2">Cancelar</a>
+    </form>
+</div>

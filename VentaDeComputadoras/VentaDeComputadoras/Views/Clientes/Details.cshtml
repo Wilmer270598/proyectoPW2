@@ -1,0 +1,60 @@
+﻿@model VentaDeComputadoras.Models.Cliente
+
+@{
+    ViewData["Title"] = "Detalles del Cliente";
+}
+
+<h1 class="text-light">Detalles del Cliente</h1>
+
+<div class="card bg-dark text-light p-4">
+    <h4 class="text-secondary">Información del Cliente</h4>
+    <hr class="bg-secondary" />
+    <dl class="row">
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.nombre)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.nombre)
+        </dd>
+
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.apellido)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.apellido)
+        </dd>
+
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.telefono)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.telefono)
+        </dd>
+
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.correo)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.correo)
+        </dd>
+
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.calle)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.calle)
+        </dd>
+
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.codigoPostal)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.codigoPostal)
+        </dd>
+    </dl>
+</div>
+
+<div class="mt-4">
+    <a asp-action="Edit" asp-route-id="@Model?.id_cliente" class="btn btn-warning">Editar</a>
+    <a asp-action="Index" class="btn btn-secondary ml-2">Volver a la Lista</a>
+</div>

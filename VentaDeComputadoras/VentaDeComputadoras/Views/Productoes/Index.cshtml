@@ -1,0 +1,86 @@
+﻿@model IEnumerable<VentaDeComputadoras.Models.Producto>
+
+@{
+    ViewData["Title"] = "Productos";
+}
+<div class="d-flex flex-row gap-3">
+<div class="card" style="width:10rem;">
+    <img class="card-img-top" src="~/images/1.jpg" alt="Card image cap">
+    <div class="card-body">
+    </div>
+</div>
+
+<div class="card" style="width: 10rem;">
+    <img class="card-img-top" src="~/images/2.jpg" alt="Card image cap">
+    <div class="card-body">
+    </div>
+</div>
+    <div class="card" style="width: 10rem;">
+        <img class="card-img-top" src="~/images/3.jpg" alt="Card image cap">
+        <div class="card-body">
+        </div>
+    </div>
+    <div class="card" style="width: 10rem;">
+        <img class="card-img-top" src="~/images/4.jpg" alt="Card image cap">
+        <div class="card-body">
+        </div>
+    </div>
+    <div class="card" style="width: 10rem;">
+        <img class="card-img-top" src="~/images/7.jpg" alt="Card image cap">
+        <div class="card-body">
+        </div>
+    </div>
+    <div class="card" style="width: 10rem;">
+        <img class="card-img-top" src="~/images/8.jpg" alt="Card image cap">
+        <div class="card-body">
+        </div>
+    </div>
+</div>
+<h1 class="text-center mt-4 text-light">Lista de Productos</h1>
+
+<div class="container mt-4">
+    <div class="d-flex justify-content-between mb-3">
+        <a asp-action="Create" class="btn btn-success">Agregar Nuevo Producto</a>
+    </div>
+
+    <table class="table table-dark table-hover table-bordered shadow-lg">
+        <thead class="thead-light">
+            <tr class="text-center">
+                <th>@Html.DisplayNameFor(model => model.NombreProducto)</th>
+                <th>@Html.DisplayNameFor(model => model.descripcion)</th>
+                <th>@Html.DisplayNameFor(model => model.estadoProducto)</th>
+                <th>@Html.DisplayNameFor(model => model.precio)</th>
+                <th>@Html.DisplayNameFor(model => model.marca)</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.NombreProducto)</td>
+                    <td>@Html.DisplayFor(modelItem => item.descripcion)</td>
+                    <td class="text-center">
+                        @if (item.estadoProducto == "Disponible")
+                        {
+                            <span class="badge bg-success">Disponible</span>
+                        }
+                        else
+                        {
+                            <span class="badge bg-danger">No Disponible</span>
+                        }
+                    </td>
+                    <td class="text-end">@Html.DisplayFor(modelItem => item.precio)</td>
+                    <td>@Html.DisplayFor(modelItem => item.marca)</td>
+                    <td class="text-center">
+                        <div class="btn-group" role="group">
+                            <a asp-action="Edit" asp-route-id="@item.id_producto" class="btn btn-warning btn-sm">Editar</a>
+                            <a asp-action="Details" asp-route-id="@item.id_producto" class="btn btn-info btn-sm text-light">Detalles</a>
+                            <a asp-action="Delete" asp-route-id="@item.id_producto" class="btn btn-danger btn-sm">Eliminar</a>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

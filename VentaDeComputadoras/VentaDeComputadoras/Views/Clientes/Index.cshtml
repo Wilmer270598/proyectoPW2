@@ -1,0 +1,70 @@
+﻿@model IEnumerable<VentaDeComputadoras.Models.Cliente>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<div class="d-flex flex-row gap-3">
+    <div class="card" style="width:5rem;">
+        <img class="card-img-top" src="~/images/HOMBRE.jpg" alt="Card image cap">
+        <div class="card-body">
+            
+            
+        </div>
+    </div>
+
+    <div class="card" style="width: 5rem;">
+        <img class="card-img-top" src="~/images/MUJER.jpg" alt="Card image cap">
+        <div class="card-body">
+            
+            
+        </div>
+    </div>
+</div>
+<h1 class="text-light">Clientes</h1>
+
+
+<p>
+    <a asp-action="Create" class="btn btn-success">Crear Nuevo Cliente</a>
+
+   
+</p>
+
+
+
+<table class="table table-dark table-hover table-bordered">
+    <thead class="thead-light">
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.nombre)</th>
+            <th>@Html.DisplayNameFor(model => model.apellido)</th>
+            <th>@Html.DisplayNameFor(model => model.telefono)</th>
+            <th>@Html.DisplayNameFor(model => model.correo)</th>
+            <th>@Html.DisplayNameFor(model => model.calle)</th>
+            <th>@Html.DisplayNameFor(model => model.codigoPostal)</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.nombre)</td>
+                <td>@Html.DisplayFor(modelItem => item.apellido)</td>
+                <td>@Html.DisplayFor(modelItem => item.telefono)</td>
+                <td>@Html.DisplayFor(modelItem => item.correo)</td>
+                <td>@Html.DisplayFor(modelItem => item.calle)</td>
+                <td>@Html.DisplayFor(modelItem => item.codigoPostal)</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.id_cliente" class="btn btn-sm btn-info mx-1">
+                        <i class="fas fa-edit"></i> Editar
+                    </a>
+                    <a asp-action="Details" asp-route-id="@item.id_cliente" class="btn btn-sm btn-primary mx-1">
+                        <i class="fas fa-info-circle"></i> Detalles
+                    </a>
+                    <a asp-action="Delete" asp-route-id="@item.id_cliente" class="btn btn-sm btn-danger mx-1">
+                        <i class="fas fa-trash-alt"></i> Eliminar
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,60 @@
+﻿@model VentaDeComputadoras.Models.Pago
+
+@{
+    ViewData["Title"] = "Crear Pago";
+}
+
+<div class="container mt-5">
+    <h1 class="text-center">Crear Pago</h1>
+
+    <h4 class="text-center">Formulario de Pago</h4>
+    <hr />
+
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+                <div class="form-group">
+                    <label asp-for="metodosPago" class="control-label"></label>
+                    <input asp-for="metodosPago" class="form-control" placeholder="Ingrese el método de pago" />
+                    <span asp-validation-for="metodosPago" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="fechaPago" class="control-label"></label>
+                    <input asp-for="fechaPago" class="form-control" placeholder="Seleccione la fecha de pago" type="date" />
+                    <span asp-validation-for="fechaPago" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="estadoPago" class="control-label"></label>
+                    <input asp-for="estadoPago" class="form-control" placeholder="Ingrese el estado del pago" />
+                    <span asp-validation-for="estadoPago" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="idPedido" class="control-label"></label>
+                    <select asp-for="idPedido" class="form-control" asp-items="ViewBag.idPedido">
+                        <option value="">Seleccione un pedido</option>
+                    </select>
+                    <span asp-validation-for="idPedido" class="text-danger"></span>
+                </div>
+
+                <div class="form-group text-center">
+                    <input type="submit" value="Crear" class="btn btn-primary btn-block" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="text-center mt-4">
+        <a asp-action="Index" class="btn btn-secondary">Volver a la Lista</a>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

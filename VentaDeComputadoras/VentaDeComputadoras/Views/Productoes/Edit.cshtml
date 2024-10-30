@@ -1,0 +1,62 @@
+﻿@model VentaDeComputadoras.Models.Producto
+
+@{
+    ViewData["Title"] = "Editar Producto";
+}
+
+<h1 class="text-light">Editar Producto</h1>
+
+<div class="bg-dark p-4 rounded shadow text-light">
+    <h4 class="text-secondary">Detalles del Producto</h4>
+    <hr class="border-secondary" />
+
+    <div class="row">
+        <div class="col-md-6">
+            <form asp-action="Edit">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="id_producto" />
+
+                <div class="form-group mb-3">
+                    <label asp-for="NombreProducto" class="form-label"></label>
+                    <input asp-for="NombreProducto" class="form-control bg-dark text-light border-secondary" />
+                    <span asp-validation-for="NombreProducto" class="text-danger"></span>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label asp-for="descripcion" class="form-label"></label>
+                    <input asp-for="descripcion" class="form-control bg-dark text-light border-secondary" />
+                    <span asp-validation-for="descripcion" class="text-danger"></span>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label asp-for="estadoProducto" class="form-label"></label>
+                    <input asp-for="estadoProducto" class="form-control bg-dark text-light border-secondary" />
+                    <span asp-validation-for="estadoProducto" class="text-danger"></span>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label asp-for="precio" class="form-label"></label>
+                    <input asp-for="precio" class="form-control bg-dark text-light border-secondary" />
+                    <span asp-validation-for="precio" class="text-danger"></span>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label asp-for="marca" class="form-label"></label>
+                    <input asp-for="marca" class="form-control bg-dark text-light border-secondary" />
+                    <span asp-validation-for="marca" class="text-danger"></span>
+                </div>
+
+                <div class="form-group mt-4">
+                    <input type="submit" value="Guardar" class="btn btn-primary me-2" />
+                    <a asp-action="Index" class="btn btn-outline-light">Volver a la Lista</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

@@ -1,0 +1,44 @@
+﻿@model VentaDeComputadoras.Models.Pago
+
+@{
+    ViewData["Title"] = "Detalles del Pago";
+}
+
+<div class="container mt-5">
+    <h1 class="text-center">Detalles del Pago</h1>
+    <div>
+        <h4 class="mt-4">Información del Pago</h4>
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-4">
+                @Html.DisplayNameFor(model => model.metodosPago)
+            </dt>
+            <dd class="col-sm-8">
+                @Html.DisplayFor(model => model.metodosPago)
+            </dd>
+            <dt class="col-sm-4">
+                @Html.DisplayNameFor(model => model.fechaPago)
+            </dt>
+            <dd class="col-sm-8">
+                @Html.DisplayFor(model => model.fechaPago)
+            </dd>
+            <dt class="col-sm-4">
+                @Html.DisplayNameFor(model => model.estadoPago)
+            </dt>
+            <dd class="col-sm-8">
+                @Html.DisplayFor(model => model.estadoPago)
+            </dd>
+            <dt class="col-sm-4">
+                @Html.DisplayNameFor(model => model.pedido)
+            </dt>
+            <dd class="col-sm-8">
+                @Html.DisplayFor(model => model.pedido.estadoPedido)
+            </dd>
+        </dl>
+    </div>
+
+    <div class="text-center mt-4">
+        <a asp-action="Edit" asp-route-id="@Model?.idPago" class="btn btn-warning">Editar</a>
+        <a asp-action="Index" class="btn btn-secondary">Volver a la Lista</a>
+    </div>
+</div>
